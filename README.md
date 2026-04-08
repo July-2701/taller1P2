@@ -53,9 +53,14 @@ Un banco necesita digitalizar su sistema de gestión de clientes, cuentas y tran
 
 A continuación se listan **todas** las historias de usuario del sistema. Cada historia debe estar implementada y demostrada en la clase principal.
 
-| ID | Historia | Criterios de Aceptación | Prioridad | Story Points |
-|:---|:---|:---|:---:|:---:|
-| **HU-01** | Como **cajero**, quiero registrar un cliente natural con sus datos personales para aperturar una cuenta en el sistema | - El sistema valida que el documento de identidad no esté repetido. El sistema lanza `CapacidadExcedidaException` si el banco alcanzó su límite de clientes. Los datos nulos o vacíos lanzan 
+| ID        | Historia                                                                                          | Criterios de Aceptación                                                                                                                                                                            | Prioridad | Story Points |
+| :-------- | :------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: | :----------: |
+| **HU-02** | Como **cajero**, quiero registrar un empleado para que pueda operar en el sistema                 | - El sistema valida que el documento no esté repetido.<br>- Si se alcanza el límite de empleados, lanza `CapacidadExcedidaException`.<br>- Datos nulos o vacíos lanzan `IllegalArgumentException`. |    Alta   |       3      |
+| **HU-03** | Como **cajero**, quiero abrir una cuenta bancaria a un cliente existente para gestionar su dinero | - El cliente debe existir en el sistema.<br>- El sistema valida que el número de cuenta sea único.<br>- Si se supera el límite de cuentas, lanza `CapacidadExcedidaException`.                     |    Alta   |       5      |
+| **HU-04** | Como **cliente**, quiero consignar dinero en mi cuenta para aumentar mi saldo                     | - El valor a consignar debe ser mayor a 0.<br>- La cuenta debe existir.<br>- El saldo se actualiza correctamente tras la operación.                                                                |    Alta   |       2      |
+| **HU-05** | Como **cliente**, quiero retirar dinero de mi cuenta para disponer de efectivo                    | - El saldo debe ser suficiente.<br>- El monto debe ser mayor a 0.<br>- Si no hay fondos suficientes, lanza una excepción (por ejemplo `SaldoInsuficienteException`).                               |    Alta   |       3      |
+| **HU-06** | Como **cliente**, quiero transferir dinero a otra cuenta para enviar fondos                       | - Ambas cuentas deben existir.<br>- El saldo debe ser suficiente.<br>- El monto debe ser mayor a 0.<br>- Se actualizan correctamente ambas cuentas.                                                |   Media   |       5      |
+
 
 ---
 
